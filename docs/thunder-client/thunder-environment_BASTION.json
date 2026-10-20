@@ -1,0 +1,25 @@
+[
+  {
+    "_id": "6b24af44-6ca8-4cac-8bff-af183bd013a2",
+    "name": "BASTION Local",
+    "default": true,
+    "global": false,
+    "sortNum": 10000,
+    "created": "2026-10-19T00:00:00.000Z",
+    "modified": "2026-10-19T00:00:00.000Z",
+    "data": [
+      {
+        "name": "baseUrl",
+        "value": "http://127.0.0.1:8000/api"
+      },
+      {
+        "name": "token",
+        "value": ""
+      },
+      {
+        "name": "itemId",
+        "value": "1"
+      }
+    ]
+  }
+]

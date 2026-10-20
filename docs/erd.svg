@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 820" width="1120" height="820" font-family="Menlo, Consolas, 'DejaVu Sans Mono', monospace" font-size="14">
+<rect width="100%" height="100%" fill="#f6f7f0"/>
+<defs><marker id="many" markerWidth="14" markerHeight="14" refX="12" refY="7" orient="auto"><path d="M0 7 L12 0 M0 7 L12 14 M0 7 H12 M12 0 V14" stroke="#8a5a00" fill="none" stroke-width="1.6"/></marker></defs>
+<text x="560.0" y="38" text-anchor="middle" font-size="22" font-weight="bold" fill="#2b3a14">BASTION — Entity Relationship Diagram</text>
+<text x="560.0" y="60" text-anchor="middle" font-size="13" fill="#5b6650">5 tables · every relationship is one-to-many (crow's foot = many side)</text>
+<rect x="40" y="90" width="270" height="220" rx="4" fill="#fff" stroke="#4b5d2a" stroke-width="2"/>
+<path d="M40 94 a4 4 0 0 1 4 -4 H306 a4 4 0 0 1 4 4 V120 H40 Z" fill="#4b5d2a"/>
+<text x="52" y="110" fill="#fff" font-weight="bold" font-size="15">users</text>
+<text x="54" y="144" fill="#1c2410" font-weight="bold">PK id</text>
+<text x="54" y="166" fill="#1c2410" font-weight="normal">name</text>
+<text x="54" y="188" fill="#1c2410" font-weight="normal">email (unique)</text>
+<text x="54" y="210" fill="#1c2410" font-weight="normal">password (hashed)</text>
+<text x="54" y="232" fill="#1c2410" font-weight="normal">rank</text>
+<text x="54" y="254" fill="#1c2410" font-weight="normal">service_number (unique)</text>
+<text x="54" y="276" fill="#1c2410" font-weight="normal">unit</text>
+<text x="54" y="298" fill="#1c2410" font-weight="normal">role: admin | user</text>
+<rect x="420" y="90" width="250" height="154" rx="4" fill="#fff" stroke="#4b5d2a" stroke-width="2"/>
+<path d="M420 94 a4 4 0 0 1 4 -4 H666 a4 4 0 0 1 4 4 V120 H420 Z" fill="#4b5d2a"/>
+<text x="432" y="110" fill="#fff" font-weight="bold" font-size="15">categories</text>
+<text x="434" y="144" fill="#1c2410" font-weight="bold">PK id</text>
+<text x="434" y="166" fill="#1c2410" font-weight="normal">name (unique)</text>
+<text x="434" y="188" fill="#1c2410" font-weight="normal">code (unique)</text>
+<text x="434" y="210" fill="#1c2410" font-weight="normal">icon</text>
+<text x="434" y="232" fill="#1c2410" font-weight="normal">description</text>
+<rect x="830" y="90" width="250" height="132" rx="4" fill="#fff" stroke="#4b5d2a" stroke-width="2"/>
+<path d="M830 94 a4 4 0 0 1 4 -4 H1076 a4 4 0 0 1 4 4 V120 H830 Z" fill="#4b5d2a"/>
+<text x="842" y="110" fill="#fff" font-weight="bold" font-size="15">depots</text>
+<text x="844" y="144" fill="#1c2410" font-weight="bold">PK id</text>
+<text x="844" y="166" fill="#1c2410" font-weight="normal">name (unique)</text>
+<text x="844" y="188" fill="#1c2410" font-weight="normal">code (unique)</text>
+<text x="844" y="210" fill="#1c2410" font-weight="normal">location</text>
+<rect x="400" y="300" width="440" height="220" rx="4" fill="#fff" stroke="#4b5d2a" stroke-width="2"/>
+<path d="M400 304 a4 4 0 0 1 4 -4 H836 a4 4 0 0 1 4 4 V330 H400 Z" fill="#4b5d2a"/>
+<text x="412" y="320" fill="#fff" font-weight="bold" font-size="15">items</text>
+<text x="828" y="320" fill="#d9e2c0" text-anchor="end" font-size="12">equipment</text>
+<text x="414" y="354" fill="#1c2410" font-weight="bold">PK id</text>
+<text x="414" y="376" fill="#1c2410" font-weight="normal">name</text>
+<text x="414" y="398" fill="#1c2410" font-weight="normal">serial_number (unique)</text>
+<text x="414" y="420" fill="#8a5a00" font-weight="normal">FK category_id → categories.id</text>
+<text x="414" y="442" fill="#8a5a00" font-weight="normal">FK depot_id → depots.id</text>
+<text x="414" y="464" fill="#8a5a00" font-weight="normal">FK created_by → users.id</text>
+<text x="414" y="486" fill="#1c2410" font-weight="normal">quantity, reorder_level</text>
+<text x="414" y="508" fill="#1c2410" font-weight="normal">status, description</text>
+<rect x="400" y="590" width="440" height="198" rx="4" fill="#fff" stroke="#4b5d2a" stroke-width="2"/>
+<path d="M400 594 a4 4 0 0 1 4 -4 H836 a4 4 0 0 1 4 4 V620 H400 Z" fill="#4b5d2a"/>
+<text x="412" y="610" fill="#fff" font-weight="bold" font-size="15">requisitions</text>
+<text x="414" y="644" fill="#1c2410" font-weight="bold">PK id</text>
+<text x="414" y="666" fill="#1c2410" font-weight="normal">reference (unique)</text>
+<text x="414" y="688" fill="#8a5a00" font-weight="normal">FK user_id → users.id</text>
+<text x="414" y="710" fill="#8a5a00" font-weight="normal">FK item_id → items.id</text>
+<text x="414" y="732" fill="#8a5a00" font-weight="normal">FK reviewed_by → users.id (nullable)</text>
+<text x="414" y="754" fill="#1c2410" font-weight="normal">quantity, purpose, priority</text>
+<text x="414" y="776" fill="#1c2410" font-weight="normal">status, needed_by, remarks</text>
+<path d="M310 160 H355 V380 H400" stroke="#8a5a00" stroke-width="2" fill="none" marker-end="url(#many)"/>
+<path d="M545 244 V300" stroke="#8a5a00" stroke-width="2" fill="none" marker-end="url(#many)"/>
+<path d="M955 222 V420 H840" stroke="#8a5a00" stroke-width="2" fill="none" marker-end="url(#many)"/>
+<path d="M620 530 V590" stroke="#8a5a00" stroke-width="2" fill="none" marker-end="url(#many)"/>
+<path d="M120 310 V640 H400" stroke="#8a5a00" stroke-width="2" fill="none" marker-end="url(#many)"/>
+<path d="M230 310 V690 H400" stroke="#8a5a00" stroke-width="2" fill="none" marker-end="url(#many)"/>
+<text x="316" y="150" font-size="12" fill="#5b6650" text-anchor="start">registers</text>
+<text x="556" y="255" font-size="12" fill="#5b6650" text-anchor="start">classified as</text>
+<text x="965" y="330" font-size="12" fill="#5b6650" text-anchor="start">stored at</text>
+<text x="632" y="565" font-size="12" fill="#5b6650" text-anchor="start">requested in</text>
+<text x="130" y="625" font-size="12" fill="#5b6650" text-anchor="start">requested by</text>
+<text x="240" y="675" font-size="12" fill="#5b6650" text-anchor="start">reviewed by</text>
+<rect x="860" y="560" width="240" height="190" rx="4" fill="#fffbe8" stroke="#c9a227" stroke-width="1.5"/>
+<text x="874" y="584" font-size="12.5" fill="#3b3300" font-weight="bold">Business rules</text>
+<text x="874" y="603" font-size="12.5" fill="#3b3300" font-weight="normal">requisition status:</text>
+<text x="874" y="622" font-size="12.5" fill="#3b3300" font-weight="normal">pending → approved</text>
+<text x="874" y="641" font-size="12.5" fill="#3b3300" font-weight="normal">→ issued → returned</text>
+<text x="874" y="660" font-size="12.5" fill="#3b3300" font-weight="normal">or rejected</text>
+<text x="874" y="679" font-size="12.5" fill="#3b3300" font-weight="normal">item status:</text>
+<text x="874" y="698" font-size="12.5" fill="#3b3300" font-weight="normal">operational | maintenance</text>
+<text x="874" y="717" font-size="12.5" fill="#3b3300" font-weight="normal">| decommissioned</text>
+<text x="874" y="736" font-size="12.5" fill="#3b3300" font-weight="normal">issue −stock, return +stock</text>
+</svg>

@@ -1,0 +1,15 @@
+# dependencies and builds
+backend/vendor/
+frontend/node_modules/
+frontend/dist/
+
+# real environment files (only .env.example is committed)
+.env
+backend/.env
+frontend/.env
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/

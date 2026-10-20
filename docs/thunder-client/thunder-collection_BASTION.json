@@ -1,0 +1,429 @@
+{
+  "client": "Thunder Client",
+  "collectionName": "BASTION API",
+  "collectionId": "ef22379f-1704-4f65-a352-9a9e3b995c97",
+  "dateExported": "2026-10-19T00:00:00.000Z",
+  "version": "1.2",
+  "folders": [],
+  "requests": [
+    {
+      "_id": "4636d859-ec16-4902-8605-4217e6902803",
+      "colId": "ef22379f-1704-4f65-a352-9a9e3b995c97",
+      "containerId": "",
+      "name": "POST /api/register",
+      "url": "{{baseUrl}}/register",
+      "method": "POST",
+      "sortNum": 10000,
+      "created": "2026-10-19T00:00:00.000Z",
+      "modified": "2026-10-19T00:00:00.000Z",
+      "headers": [
+        {
+          "name": "Accept",
+          "value": "application/json"
+        },
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "params": [],
+      "tests": [
+        {
+          "type": "res-code",
+          "custom": "",
+          "action": "equal",
+          "value": "201"
+        }
+      ],
+      "body": {
+        "type": "json",
+        "raw": "{\n  \"name\": \"Test Officer\",\n  \"email\": \"testofficer@bastion.test\",\n  \"password\": \"Password123!\",\n  \"password_confirmation\": \"Password123!\",\n  \"rank\": \"Captain\",\n  \"unit\": \"Alpha Company\"\n}",
+        "form": []
+      }
+    },
+    {
+      "_id": "516a88ec-922b-4dac-9315-6c8c898c6ff4",
+      "colId": "ef22379f-1704-4f65-a352-9a9e3b995c97",
+      "containerId": "",
+      "name": "POST /api/login (admin)",
+      "url": "{{baseUrl}}/login",
+      "method": "POST",
+      "sortNum": 20000,
+      "created": "2026-10-19T00:00:00.000Z",
+      "modified": "2026-10-19T00:00:00.000Z",
+      "headers": [
+        {
+          "name": "Accept",
+          "value": "application/json"
+        },
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "params": [],
+      "tests": [
+        {
+          "type": "res-code",
+          "custom": "",
+          "action": "equal",
+          "value": "200"
+        },
+        {
+          "type": "set-env-var",
+          "custom": "json.token",
+          "action": "setto",
+          "value": "{{token}}"
+        }
+      ],
+      "body": {
+        "type": "json",
+        "raw": "{\n  \"email\": \"admin@bastion.test\",\n  \"password\": \"Password123!\"\n}",
+        "form": []
+      }
+    },
+    {
+      "_id": "9064dcca-8ccf-4ae8-aaa5-64fdb9380390",
+      "colId": "ef22379f-1704-4f65-a352-9a9e3b995c97",
+      "containerId": "",
+      "name": "GET /api/user",
+      "url": "{{baseUrl}}/user",
+      "method": "GET",
+      "sortNum": 30000,
+      "created": "2026-10-19T00:00:00.000Z",
+      "modified": "2026-10-19T00:00:00.000Z",
+      "headers": [
+        {
+          "name": "Accept",
+          "value": "application/json"
+        },
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "params": [],
+      "tests": [
+        {
+          "type": "res-code",
+          "custom": "",
+          "action": "equal",
+          "value": "200"
+        }
+      ],
+      "auth": {
+        "type": "bearer",
+        "bearer": "{{token}}"
+      }
+    },
+    {
+      "_id": "f9b9cd58-8c03-4f30-9301-dc4250be4ac2",
+      "colId": "ef22379f-1704-4f65-a352-9a9e3b995c97",
+      "containerId": "",
+      "name": "GET /api/items?search=radio&category_id=1&page=1",
+      "url": "{{baseUrl}}/items?search=radio&category_id=1&page=1",
+      "method": "GET",
+      "sortNum": 40000,
+      "created": "2026-10-19T00:00:00.000Z",
+      "modified": "2026-10-19T00:00:00.000Z",
+      "headers": [
+        {
+          "name": "Accept",
+          "value": "application/json"
+        },
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "params": [
+        {
+          "name": "search",
+          "value": "radio",
+          "isPath": false
+        },
+        {
+          "name": "category_id",
+          "value": "1",
+          "isPath": false
+        },
+        {
+          "name": "page",
+          "value": "1",
+          "isPath": false
+        }
+      ],
+      "tests": [
+        {
+          "type": "res-code",
+          "custom": "",
+          "action": "equal",
+          "value": "200"
+        }
+      ],
+      "auth": {
+        "type": "bearer",
+        "bearer": "{{token}}"
+      }
+    },
+    {
+      "_id": "c9973a2d-2e2d-40b1-a7f6-6dda32a7d54d",
+      "colId": "ef22379f-1704-4f65-a352-9a9e3b995c97",
+      "containerId": "",
+      "name": "POST /api/items",
+      "url": "{{baseUrl}}/items",
+      "method": "POST",
+      "sortNum": 50000,
+      "created": "2026-10-19T00:00:00.000Z",
+      "modified": "2026-10-19T00:00:00.000Z",
+      "headers": [
+        {
+          "name": "Accept",
+          "value": "application/json"
+        },
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "params": [],
+      "tests": [
+        {
+          "type": "res-code",
+          "custom": "",
+          "action": "equal",
+          "value": "201"
+        },
+        {
+          "type": "set-env-var",
+          "custom": "json.data.id",
+          "action": "setto",
+          "value": "{{itemId}}"
+        }
+      ],
+      "body": {
+        "type": "json",
+        "raw": "{\n  \"name\": \"Tactical Gear Box\",\n  \"serial_number\": \"GB-TC-2026-001\",\n  \"category_id\": 5,\n  \"depot_id\": 1,\n  \"quantity\": 50,\n  \"reorder_level\": 10,\n  \"status\": \"operational\",\n  \"description\": \"Hard-case field gear box\"\n}",
+        "form": []
+      },
+      "auth": {
+        "type": "bearer",
+        "bearer": "{{token}}"
+      }
+    },
+    {
+      "_id": "24b40f7c-42eb-4cff-8152-a2340e63e7d4",
+      "colId": "ef22379f-1704-4f65-a352-9a9e3b995c97",
+      "containerId": "",
+      "name": "GET /api/items/{id}",
+      "url": "{{baseUrl}}/items/{{itemId}}",
+      "method": "GET",
+      "sortNum": 60000,
+      "created": "2026-10-19T00:00:00.000Z",
+      "modified": "2026-10-19T00:00:00.000Z",
+      "headers": [
+        {
+          "name": "Accept",
+          "value": "application/json"
+        },
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "params": [],
+      "tests": [
+        {
+          "type": "res-code",
+          "custom": "",
+          "action": "equal",
+          "value": "200"
+        }
+      ],
+      "auth": {
+        "type": "bearer",
+        "bearer": "{{token}}"
+      }
+    },
+    {
+      "_id": "3cdae75a-c2fa-44bb-8bd7-ea99772ab570",
+      "colId": "ef22379f-1704-4f65-a352-9a9e3b995c97",
+      "containerId": "",
+      "name": "PUT /api/items/{id}",
+      "url": "{{baseUrl}}/items/{{itemId}}",
+      "method": "PUT",
+      "sortNum": 70000,
+      "created": "2026-10-19T00:00:00.000Z",
+      "modified": "2026-10-19T00:00:00.000Z",
+      "headers": [
+        {
+          "name": "Accept",
+          "value": "application/json"
+        },
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "params": [],
+      "tests": [
+        {
+          "type": "res-code",
+          "custom": "",
+          "action": "equal",
+          "value": "200"
+        }
+      ],
+      "body": {
+        "type": "json",
+        "raw": "{\n  \"name\": \"Updated Tactical Gear Box\",\n  \"serial_number\": \"GB-TC-2026-001\",\n  \"category_id\": 5,\n  \"depot_id\": 1,\n  \"quantity\": 45,\n  \"reorder_level\": 10,\n  \"status\": \"operational\",\n  \"description\": \"Hard-case field gear box\"\n}",
+        "form": []
+      },
+      "auth": {
+        "type": "bearer",
+        "bearer": "{{token}}"
+      }
+    },
+    {
+      "_id": "4786adde-d6a1-4769-824e-65fb255cab78",
+      "colId": "ef22379f-1704-4f65-a352-9a9e3b995c97",
+      "containerId": "",
+      "name": "PATCH /api/items/{id}/status",
+      "url": "{{baseUrl}}/items/{{itemId}}/status",
+      "method": "PATCH",
+      "sortNum": 80000,
+      "created": "2026-10-19T00:00:00.000Z",
+      "modified": "2026-10-19T00:00:00.000Z",
+      "headers": [
+        {
+          "name": "Accept",
+          "value": "application/json"
+        },
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "params": [],
+      "tests": [
+        {
+          "type": "res-code",
+          "custom": "",
+          "action": "equal",
+          "value": "200"
+        }
+      ],
+      "body": {
+        "type": "json",
+        "raw": "{\n  \"status\": \"maintenance\"\n}",
+        "form": []
+      },
+      "auth": {
+        "type": "bearer",
+        "bearer": "{{token}}"
+      }
+    },
+    {
+      "_id": "cfd8ab58-146e-4814-8792-446ff6064ae6",
+      "colId": "ef22379f-1704-4f65-a352-9a9e3b995c97",
+      "containerId": "",
+      "name": "GET /api/dashboard",
+      "url": "{{baseUrl}}/dashboard",
+      "method": "GET",
+      "sortNum": 90000,
+      "created": "2026-10-19T00:00:00.000Z",
+      "modified": "2026-10-19T00:00:00.000Z",
+      "headers": [
+        {
+          "name": "Accept",
+          "value": "application/json"
+        },
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "params": [],
+      "tests": [
+        {
+          "type": "res-code",
+          "custom": "",
+          "action": "equal",
+          "value": "200"
+        }
+      ],
+      "auth": {
+        "type": "bearer",
+        "bearer": "{{token}}"
+      }
+    },
+    {
+      "_id": "78bca00b-c12a-471a-9ac8-b70c65be1d3a",
+      "colId": "ef22379f-1704-4f65-a352-9a9e3b995c97",
+      "containerId": "",
+      "name": "DELETE /api/items/{id}",
+      "url": "{{baseUrl}}/items/{{itemId}}",
+      "method": "DELETE",
+      "sortNum": 100000,
+      "created": "2026-10-19T00:00:00.000Z",
+      "modified": "2026-10-19T00:00:00.000Z",
+      "headers": [
+        {
+          "name": "Accept",
+          "value": "application/json"
+        },
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "params": [],
+      "tests": [
+        {
+          "type": "res-code",
+          "custom": "",
+          "action": "equal",
+          "value": "204"
+        }
+      ],
+      "auth": {
+        "type": "bearer",
+        "bearer": "{{token}}"
+      }
+    },
+    {
+      "_id": "eb5be004-b2c2-4a00-bb9c-8151d76fb8e5",
+      "colId": "ef22379f-1704-4f65-a352-9a9e3b995c97",
+      "containerId": "",
+      "name": "POST /api/logout",
+      "url": "{{baseUrl}}/logout",
+      "method": "POST",
+      "sortNum": 110000,
+      "created": "2026-10-19T00:00:00.000Z",
+      "modified": "2026-10-19T00:00:00.000Z",
+      "headers": [
+        {
+          "name": "Accept",
+          "value": "application/json"
+        },
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "params": [],
+      "tests": [
+        {
+          "type": "res-code",
+          "custom": "",
+          "action": "equal",
+          "value": "200"
+        }
+      ],
+      "auth": {
+        "type": "bearer",
+        "bearer": "{{token}}"
+      }
+    }
+  ]
+}
